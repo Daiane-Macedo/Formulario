@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+		<title>Formulário com Validação</title>
+    <link rel="stylesheet" href="form.css">
+    <script type="text/javascript">
+  
+      function validar(palavra, nomeCampo){
+        var nome = formvalidacao.nome.value;
+        var endereco = formvalidacao.endereco.value;
+        var bairro = formvalidacao.bairro.value;
+        var cidade = formvalidacao.cidade.value;
+        var referencia = formvalidacao.referencia.value;
+        var cep = formvalidacao.cep.value;
+        var telefone = formvalidacao.tel.value;
+        var celular = formvalidacao.cel.value;
+        var cpf = formvalidacao.cpf.value;
+                
+        //verifica nome vazio e menor que 5 caracteres
+        if (nome == "" || nome.length < 5) {
+          alert('Preencha o campo com seu nome completo');
+          formvalidacao.nome.focus();
+          return false;
+        }
+        //verifica formato do nome (sem número e no máximo 100 caracteres)
+        regexNome = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/
+        
+        if(!regexNome.test(nome)){
+          alert('Nome Invalido! O nome não deve conter números.'); 
+          formvalidacao.nome.focus();
+          return false;
+        } 
+        // verifica enrdereço vazio e menor que 8 caracteres
+        if (endereco == "" || endereco.length < 8) {
+          alert('Preencha o campo endereco');
+          formvalidacao.endereco.focus();
+          return false;
+        }
+        //verifica bairro vazio e mnenor que 3 caracteres
+        if (bairro == ""|| bairro.length < 3) {
+          alert('Preencha o campo bairro');
+          formvalidacao.bairro.focus();
+          return false;
+        }
+        //verifica cidade vazia e mnenor que 3 caracteres
+        if (cidade == ""|| cidade.length < 3) {
+          alert('Preencha o campo cidade');
+          formvalidacao.cidade.focus();
+          return false;
+        }  
+        //verifica referência vazia e menor que 5 caracteres
+        if (referencia == "" || referencia.length < 5 ) {
+          alert('Preencha o campo referencia');
+          formvalidacao.referencia.focus();
+          return false;
+        }
+        
+        //valida  CEP (formato)
+        exp = /\d{5}\-\d{3}/
+        if(!exp.test(cep)){
+          alert('Cep Invalido! O CEP deve possuir o formato 22222-222'); 
+          formvalidacao.cep.focus();
+          return false;
+        } 
+        
+        //Valida CPF (formato)
+        expCpf=/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
+        if(!expCpf.test(cpf)){
+          alert('CPF Invalido! O CPF deve possuir o formato 000.000.000-00'); 
+          formvalidacao.cpf.focus();
+          return false;
+        }
+        /*Valia o telefone fixo (verifica se o campo está vazio ou nao contém os 10 dígitos)*/
+        if (telefone == "" || telefone.length != 10){
+          alert ("O número de telefone (com DDD) deve possuir 10 dígitos!");
+          formvalidacao.tel.focus();
+          return false;
+        }
+          //validar telefone(verificacao se contém apenas numeros)
+          if (isNaN(formvalidacao.tel.value)){
+          alert ("O campo telefone deve conter apenas números!");
+          formvalidacao.tel.focus();
+          return false;
+        }
+        /*Valia o celualr (verifica se o campo está vazio ou não tem 11 dígitos*/
+        if (celular == "" || celular.length != 11){
+          alert ("O número de celular (com DDD) deve possuir 11 dígitos!");
+          formvalidacao.cel.focus();
+          return false;
+        }
+          //validar celular (verificacao se contém apenas numeros)
+          if (isNaN(celular)){
+          alert ("O campo celular deve conter apenas números!");
+          formvalidacao.cel.focus();
+          return false;
+        }
+        //validar cartão (verifica se é número)
+        if (isNaN(formvalidacao.numCartao.value)){
+          alert ("O campo nº do cartão de crédito deve conter apenas numeros!");
+          formvalidacao.numCartao.focus();
+          return false;
+        }
+        //verifica identidade 
+        if (isNaN(formvalidacao.identidade.value)){
+          alert ("O campo identidade deve conter apenas numeros!");
+          formvalidacao.identidade.focus();
+          return false;
+        }
+        alert("Obrigada por preencher o formulário :D");
+        document.formvalidacao.submit();
+
+      }
+
+    </script>
+  </head>
+  <body>
+    <div class='formulario'>
+      <h1>Formulário Cliente</h1>
+      <form name='formvalidacao'>
+        Nome:<br> <input type="text" name="nome" id="nome" size="30" maxlength="100" placeholder="Nome Completo"><br>
+        Endereço:<br> <input type="text" name="endereco" id="endereco" placeholder="Rua e número" maxlength="60"><br>
+        <div class="moradia">
+          Bairro:<br> <input type="text" name="bairro" id="bairro" maxlength="30"><br>
+
+          Cidade:<br> <input type="text" name="cidade" id="cidade" maxlength="40"><br>
+        </div>
+        CEP:<br> <input type="text" name="cep" maxlength="9" placeholder="Ex: 00000-000">	<br>
+        Estado (UF):<br> <select name="estados" id=uf>	
+        <option value="AC">AC</option>
+				<option value="AL">AL</option>
+				<option value="AM">AM</option>
+				<option value="AP">AP</option>
+				<option value="BA">BA</option>
+				<option value="CE">CE</option>
+				<option value="DF">DF</option>
+				<option value="ES">ES</option>
+				<option value="GO">GO</option>
+				<option value="MA">MA</option>
+				<option value="MG">MG</option>
+				<option value="MS">MS</option>
+				<option value="MT">MT</option>
+				<option value="PA">PA</option>
+				<option value="PB">PB</option>
+				<option value="PE">PE</option>
+				<option value="PI">PI</option>
+				<option value="PR">PR</option>
+				<option value="RJ">RJ</option>
+				<option value="RN">RN</option>
+				<option value="RS">RS</option>
+				<option value="RO">RO</option>
+				<option value="RR">RR</option>
+				<option value="SC">SC</option>
+				<option value="SE">SE</option>
+				<option value="SP">SP</option>
+				<option value="TO">TO</option><br>
+        </select><br>
+        <div class='ref'>
+          Referência: <br><input type="text" name="referencia" id="referencia" maxlength="40"><br>
+        </div>
+        <div class="cpfTel">
+          CPF:<br> <input type="text" name="cpf"  id="cpf" placeholder="Ex: 000.000.000-00" maxlength="14"><br>
+          Telefone Fixo:<br> <input type="text" name="tel" maxlength="10"id="telFixo" placeholder="Ex:(21)21234567"><br>
+        </div>
+          RI (identidade):<br> <input type="text" name="identidade"  maxlength="12"> <br>
+          Celular:<br> <input type="text" name="cel" maxlength="11"placeholder="Ex:(21)912345678"s><br>
+          <div class='cartao'>
+            Número do Cartão de Crédito:<br> <input type="text" name="numCartao" id="nCartao" maxlength="16"><br>
+          </div>
+          Bandeira:<br> 
+        <select name="bandeiraCartao">	
+          <option value="visa">Visa</option>
+          <option value="mastercard">Mastercard</option>
+          <option value="elo">Elo</option>
+          <option value="amex">Amex</option>
+        </select><br>
+        <div class='botao'>
+          <input type="button" value='Enviar' onclick="validar()" id='btn'>
+        </div>
+      </form>
+		</div>
+  </body>
+<html>
+
+
+
+

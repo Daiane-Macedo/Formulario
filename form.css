@@ -1,0 +1,79 @@
+body{
+    background:#fbfbfb;
+    font-family: sans-serif;
+
+}
+.formulario {
+    max-width: 500px;
+    min-height: 500px;
+    border: solid 4px #1fabab;
+    padding: 15px;
+    border-radius: 3px;
+    margin: 1% auto auto auto;
+    background: #fff;
+    display: block;
+}
+.formulario h1{
+    text-align: center;
+    color: #6b6b6b;
+    margin: 12px 0 12px 0;
+}
+form{
+    margin: 0 0 0 10%;
+}
+select,
+input{
+    margin-bottom: 8px;
+    border-radius: 2px;
+    border: solid 1px #ccc8c8;
+    min-height: 30px;
+}
+input{
+  padding-left: 3px;
+}
+.ref{
+    text-align: left;
+    clear: both;
+}
+#nCartao,
+#nome,
+#endereco,
+#referencia{
+    min-width: 90%;
+}
+#uf{
+	padding: 0 6px 0 15px;
+}
+#nCartao,
+#bairro,
+#cidade,
+#cpf,
+#telFixo{
+    margin-right: 10px;
+    min-width: 215px;
+}
+.cartao,
+.cpfTel,
+.moradia,
+.documento{
+    float: left;
+    margin-right: 10px;
+}
+.botao{
+    width: 110%;
+    text-align: center;
+    margin-top: 7px;
+    margin-left: -10%;
+
+}
+#btn{
+    width: 100px;
+    height: 40px;
+    background: #eaeaea;
+    color: #1fabab;
+    font-size: 1.2em;
+		border:2px solid #1fabab;
+}
+#btn:hover{
+    opacity: 0.7;
+}
